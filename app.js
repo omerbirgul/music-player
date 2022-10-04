@@ -39,11 +39,9 @@ play.addEventListener("click", () =>{
 });
 
 
-prev.addEventListener("click",() =>{
-    prevMusic();
-})
+prev.addEventListener("click",() =>{prevMusic()})
 
-function prevMusic(){
+const prevMusic = () =>{
 
     player.prev();
     let music = player.getMusic();
@@ -51,11 +49,9 @@ function prevMusic(){
     playMusic();
 }
 
-next.addEventListener("click",() =>{
-    nextMusic();
-})
+next.addEventListener("click",() =>{nextMusic()})
 
-function nextMusic(){
+const nextMusic = () =>{
 
     player.next();
     let music = player.getMusic();
@@ -64,7 +60,7 @@ function nextMusic(){
 }
 
 
-function playMusic(){
+const playMusic = () =>{
     container.classList.add("playing");
     play.classList = "fa-solid fa-pause"
 
@@ -72,7 +68,7 @@ function playMusic(){
 }
 
 
-function pauseMusic(){
+const pauseMusic = ()=>{
     container.classList.remove("playing");
     play.classList = "fa-solid fa-play"
     audio.pause();
@@ -92,7 +88,13 @@ audio.addEventListener("timeupdate", ()=>{
 const calculateTime = (totalSeconds) =>{
     const minute = Math.floor(totalSeconds / 60);
     const seconds = Math.floor(totalSeconds % 60);
-    const updatedSecond = totalSeconds < 10 ? `0${seconds}` : `${seconds}`
+    const updatedSecond = seconds < 10 ? `0${seconds}` : `${seconds}`
     const sonuc = `${minute}:${updatedSecond}`
     return sonuc;
 }
+
+
+progressBar.addEventListener("input", () =>{
+    currentTime.textContent = calculateTime(progressBar.value);
+    audio.currentTime = progressBar.value;
+})
