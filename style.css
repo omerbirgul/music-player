@@ -1,6 +1,33 @@
+.container{
+    width: 50%;
+}
+#music-image{
+    width: 100%;
+}
+
 #controls i{
     font-size: 30px;
     color: purple;
     margin-right: 20px;
     cursor: pointer;
+}
+
+#progress{
+    margin-bottom: 25px;
+}
+
+#progress-bar{
+    width: 100%;
+}
+
+#music-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.times {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

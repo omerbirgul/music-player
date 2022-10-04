@@ -6,6 +6,9 @@ const singer = document.querySelector("#music-details .singer")
 const prev = document.querySelector("#prev")
 const play = document.querySelector("#play")
 const next = document.querySelector("#next")
+const duration = document.querySelector("#duration")
+const currentTime = document.querySelector("#current-time")
+const progressBar = document.querySelector("#progress-bar")
 
 
 
@@ -75,3 +78,21 @@ function pauseMusic(){
     audio.pause();
 }
 
+
+audio.addEventListener("loadedmetadata",() =>{
+    duration.textContent = calculateTime(audio.duration)
+    progressBar.max = Math.floor(audio.duration)
+})
+
+audio.addEventListener("timeupdate", ()=>{
+    progressBar.value = Math.floor(audio.currentTime)
+    currentTime.textContent = calculateTime(progressBar.value)
+})
+
+const calculateTime = (totalSeconds) =>{
+    const minute = Math.floor(totalSeconds / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+    const updatedSecond = totalSeconds < 10 ? `0${seconds}` : `${seconds}`
+    const sonuc = `${minute}:${updatedSecond}`
+    return sonuc;
+}
