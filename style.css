@@ -30,3 +30,8 @@ body{
     justify-content: space-between;
 }
 
+li.playing{
+    color: #fff;
+    background-color: #0b5eb7;
+}
+
