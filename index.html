@@ -45,15 +45,22 @@
                 </div>
             </div>
 
+
             <div class="card-footer">
 
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#music-list">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="volume-container">
                         <i id="volume" class="fa-solid fa-volume-high"></i>
                         <input type="range" id="volume-bar" max="100" value="100" class="card-range">
                 </div>
+            </div>
+
+            <div id="music-list" class="collapse">
+                <ul class="list-group list-group-flush">
+                   
+                </ul>
             </div>
         </div>
     </div>
